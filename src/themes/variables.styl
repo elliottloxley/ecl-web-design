@@ -1,0 +1,70 @@
+miscTransparent = hsla(0, 0%, 0%, 0);
+miscTextColour = hsl(0, 0, 90%);
+miscDarkShadow = hsl(0, 0, 5%);
+miscLightShadow = hsl(0, 0, 20%);
+miscLinkColour = hsl(0, 0, 10%);
+
+lightBaseColour = hsl(167, 100%, 45%);
+lightShadowColour = hsla(227, 15%, 48%, 1);
+
+lightLowHighlightColour = hsl(29, 63%, 55%);
+lightHighlightColour = hsla(0, 0, 90%, 1);
+lightStrongHighlightColour = hsla(195, 65%, 60%, 1);
+
+homePageBaseColour = hsla(144, 47%, 35%, 1);
+homePageMenuColour = hsla(35, 63%, 55%, 0.6);
+homePageBannerColour = hsla(35, 63%, 55%, 0.7);
+homePageMenuHoverColour = hsla(35, 63%, 55%, 0.8);
+homePageShadowColour = hsla(1, 0%, 0%, 0.4);
+
+websitesPageBaseColour = hsl(210, 47%, 35%);
+websitesHighlightColour = hsl(157, 100%, 8%);
+
+aboutPageBaseColour = hsl(360, 47%, 35%);
+
+softwarePageBaseColour = hsl(270, 47%, 35%);
+
+contactPageBaseColour = hsl(35, 47%, 30%);
+
+gradientVert(offsetFromTop, topColour, bottomColour)
+    background: topColour;
+    background: -moz-linear-gradient(top, topColour 0%, topColour offsetFromTop, bottomColour 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, topColour), color-stop(offsetFromTop, topColour), color-stop(100%, bottomColour));
+    background: -webkit-linear-gradient(top, topColour 0%, topColour offsetFromTop, bottomColour 100%);
+    background: -o-linear-gradient(top, topColour 0%, topColour offsetFromTop, bottomColour 100%);
+    background: -ms-linear-gradient(top, topColour 0%, topColour offsetFromTop, bottomColour 100%);
+    background: linear-gradient(to bottom, topColour 0%, topColour offsetFromTop, bottomColour 100%);
+
+
+gradientHorz(offsetFromLeft, leftColour, rightColour)
+    background: leftColour;
+    background: -moz-linear-gradient(left, leftColour 0%, rightColour offsetFromLeft, rightColour 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, leftColour), color-stop(offsetFromLeft, rightColour), color-stop(100%, rightColour));
+    background: -webkit-linear-gradient(left, leftColour 0%, rightColour offsetFromLeft, rightColour 100%);
+    background: -o-linear-gradient(left, leftColour 0%, rightColour offsetFromLeft, rightColour 100%);
+    background: -ms-linear-gradient(left, leftColour 0%, rightColour offsetFromLeft, rightColour 100%);
+    background: linear-gradient(to right, leftColour 0%, rightColour offsetFromLeft, rightColour 100%);
+
+gradientLeftRight(offset, leftColour, rightColour)
+    background: leftColour;
+    background: -moz-linear-gradient(left, leftColour 0%, rightColour offset, rightColour 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, leftColour), color-stop(offset, rightColour), color-stop(100%, rightColour));
+    background: -webkit-linear-gradient(left, leftColour 0%, rightColour offset, rightColour 100%);
+    background: -o-linear-gradient(left, leftColour 0%, rightColour offset, rightColour 100%);
+    background: -ms-linear-gradient(left, leftColour 0%, rightColour offset, rightColour 100%);
+    background: linear-gradient(to right, leftColour 0%, rightColour offset, rightColour 100%);
+
+gradientRightLeft(offset, rightColour, leftColour)
+    background: leftColour;
+    background: -moz-linear-gradient(left, leftColour 0%, leftColour offset, rightColour 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, leftColour), color-stop(offset, leftColour), color-stop(100%, rightColour));
+    background: -webkit-linear-gradient(left, leftColour 0%, leftColour offset, rightColour 100%);
+    background: -o-linear-gradient(left, leftColour 0%, leftColour offset, rightColour 100%);
+    background: -ms-linear-gradient(left, leftColour 0%, leftColour offset, rightColour 100%);
+    background: linear-gradient(to right, leftColour 0%, leftColour offset, rightColour 100%);
+
+gradientCenter(centerColour, outerColour, centerOffset)
+    background: centerColour;
+    background: radial-gradient(circle, centerColour centerOffset, outerColour 100%);
+
+

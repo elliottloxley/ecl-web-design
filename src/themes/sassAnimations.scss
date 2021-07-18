@@ -1,0 +1,79 @@
+@import "sassMathHelper.scss";
+
+@mixin homePageLinkPopIn($class, $angleDeg, $magnitudeWithUnit, $duration, $startTime: 0s, $additionalDelay: 0s , $fillMode:forwards) {
+  $animationName: unique-id() !global;
+
+  @if unitless($angleDeg) {
+    $angleDeg: $angleDeg + 0deg;
+  }
+
+  $vectorX: cos($angleDeg) * $magnitudeWithUnit;
+  $vectorY: sin($angleDeg) * $magnitudeWithUnit;
+
+  @keyframes #{$animationName} {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+
+    }
+    50% {
+
+    }
+    75% {
+
+    }
+    100% {
+      transform: translate($vectorX, $vectorY);
+    }
+  }
+
+  .#{$class} {
+
+    animation: $animationName $duration ease-out ($startTime + $additionalDelay) $fillMode;
+  }
+}
+
+@mixin blobBubbleDown($class, $duration, $stepCount, $scaleStepDownFactor: 0.8, $endBuffer: 0.5s, $delay: 0s,  $preBubbleMagnitude: 1.5) {
+  $animationName: unique-id() !global;
+
+  @if unitless($duration) {
+    $duration: $duration + 0s;
+  }
+
+  @if unitless($endBuffer) {
+    $endBuffer: $endBuffer + 0s;
+  }
+
+  $trueDuration: $duration + $endBuffer;
+  $bufferPercent: ($endBuffer / $trueDuration) * 100%;
+  $stepAmountPercent:  (100% - $bufferPercent) / ($stepCount);
+
+  $currentPercent: 0%;
+  $currentScale: 1;
+
+  @keyframes #{$animationName} {
+    @for $i from 1 through $stepCount {
+      $currentPercent: $currentPercent + $stepAmountPercent;
+      $currentScale: $currentScale * $scaleStepDownFactor;
+
+      @if $preBubbleMagnitude > 0 {
+        #{$currentPercent -  ($stepAmountPercent * 0.4)} {
+          transform: scale($currentScale * $preBubbleMagnitude);
+        }
+      }
+
+      #{$currentPercent} {
+        transform: scale($currentScale);
+      }
+    }
+
+    100% {
+      transform: scale($currentScale * $scaleStepDownFactor);
+    }
+  }
+
+  .#{$class} {
+    animation: $animationName $trueDuration linear $delay forwards;
+  }
+}
